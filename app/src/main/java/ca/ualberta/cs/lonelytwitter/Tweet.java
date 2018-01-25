@@ -1,12 +1,17 @@
 package ca.ualberta.cs.lonelytwitter;
 
+import com.google.gson.annotations.Expose;
+
 import java.util.Date;
 import java.util.HashSet;
 
 public abstract class Tweet implements Tweetable {
 
+    @Expose
     private String message;
+    @Expose
     private Date date;
+    @Expose
     private HashSet<Mood> moods;
 
     Tweet(String message) {
@@ -37,6 +42,11 @@ public abstract class Tweet implements Tweetable {
             throw new TweetTooLongException();
         }
         this.message = message;
+    }
+
+    @Override
+    public String toString(){
+        return this.message;
     }
 
     public void setDate(Date date) {
