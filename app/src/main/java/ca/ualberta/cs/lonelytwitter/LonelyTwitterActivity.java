@@ -1,9 +1,12 @@
 package ca.ualberta.cs.lonelytwitter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,6 +16,8 @@ import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
 public class LonelyTwitterActivity extends Activity {
+
+    private LonelyTwitterActivity activity = this;
 
 	//private static final String FILENAME = "file.sav";
 	private EditText bodyText;
@@ -68,6 +73,16 @@ public class LonelyTwitterActivity extends Activity {
 			}
 		});
 
+		oldTweetsList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+
+		    @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+		        Intent intent = new Intent(getBaseContext(), EditTweetActivity.class);
+		        intent.putExtra("tweet", tweetList.get(i).getMessage());
+		        startActivity(intent);
+            }
+
+        });
 
 	}
 
@@ -86,6 +101,10 @@ public class LonelyTwitterActivity extends Activity {
 		adapter = new ArrayAdapter<NormalTweet>(this,
 				R.layout.list_item, tweetList);
 		oldTweetsList.setAdapter(adapter);
+	}
+
+	public ListView getOldTweetList(){
+		return oldTweetsList;
 	}
 
 
