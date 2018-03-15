@@ -4,16 +4,18 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
+    <!-- Extract text to a @string -->
     <TextView
         android:id="@+id/oldTweetsTitle"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="My old tweets" />
+        android:text="@string/my_old_tweets" />
 
+    <!-- layout_height to 0 for better performance -->
     <ListView
         android:id="@+id/oldTweetsList"
         android:layout_width="fill_parent"
-        android:layout_height="263dp"
+        android:layout_height="0dp"
         android:layout_weight="1"
         android:scrollbars="vertical" >
 
@@ -24,9 +26,11 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/hello" />
-    
+
+    <!-- add hint text -->
     <EditText
         android:id="@+id/body"
+        android:hint="@string/body"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:scrollbars="horizontal" />

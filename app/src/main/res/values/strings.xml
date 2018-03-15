@@ -5,5 +5,7 @@
     <string name="app_name">LonelyTwitter</string>
     <string name="save">Save</string>
     <string name="search">Search</string>
+    <string name="my_old_tweets">My old tweets</string>
+    <string name="body">Body</string>
 
 </resources>
